@@ -1,10 +1,293 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <title>Sud Rud Assets</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0D8B8B" />
+  <meta name="description" content="Sud Rud — اكتشف، خطط، اتحرك، واتواصل. تجربة سفر اجتماعية أذكى." />
+  <title>Sud Rud | صد رد</title>
+  <style>
+    :root{
+      --bg:#07181a;
+      --bg2:#0b2225;
+      --card:rgba(255,255,255,.075);
+      --line:rgba(255,255,255,.12);
+      --text:#f7fbfb;
+      --muted:#b9cccc;
+      --brand:#22b8b5;
+      --brand2:#6ee7d8;
+      --accent:#ffd15c;
+      --shadow:0 24px 80px rgba(0,0,0,.28);
+      --radius:28px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, "Segoe UI", Tahoma, Arial, sans-serif;
+      background:
+        radial-gradient(circle at 15% 0%, rgba(34,184,181,.20), transparent 30%),
+        radial-gradient(circle at 90% 25%, rgba(255,209,92,.10), transparent 25%),
+        linear-gradient(180deg,var(--bg),#061214 65%,#081719);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(1160px,calc(100% - 32px));margin:auto}
+    nav{
+      position:sticky;top:0;z-index:40;
+      backdrop-filter:blur(18px);
+      background:rgba(7,24,26,.72);
+      border-bottom:1px solid rgba(255,255,255,.07);
+    }
+    .nav-inner{
+      height:74px;display:flex;align-items:center;justify-content:space-between;gap:16px
+    }
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:20px}
+    .brand-badge{
+      width:38px;height:38px;border-radius:13px;display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--brand),var(--brand2));color:#052527;font-weight:1000;
+      box-shadow:0 10px 30px rgba(34,184,181,.25)
+    }
+    .nav-links{display:flex;gap:22px;align-items:center;color:var(--muted);font-size:14px}
+    .lang-btn{
+      border:1px solid var(--line);background:var(--card);color:white;
+      border-radius:14px;padding:10px 14px;cursor:pointer;font-weight:700
+    }
+    .hero{padding:78px 0 42px}
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:42px}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;
+      color:var(--brand2);background:rgba(34,184,181,.10);border:1px solid rgba(110,231,216,.2);
+      font-size:13px;font-weight:800;margin-bottom:18px
+    }
+    h1{font-size:clamp(44px,7vw,78px);line-height:1.02;margin:0 0 18px;letter-spacing:-2px}
+    .gradient{background:linear-gradient(90deg,#fff,var(--brand2),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{font-size:18px;line-height:1.9;color:var(--muted);max-width:650px;margin:0 0 28px}
+    .cta-row{display:flex;flex-wrap:wrap;gap:12px}
+    .btn{
+      padding:14px 20px;border-radius:16px;font-weight:900;border:1px solid transparent;
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;transition:.25s ease;
+    }
+    .btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#062a2b;box-shadow:0 14px 40px rgba(34,184,181,.22)}
+    .btn-secondary{border-color:var(--line);background:rgba(255,255,255,.05)}
+    .btn:hover{transform:translateY(-2px)}
+    .hero-visual{
+      position:relative;min-height:540px;display:grid;place-items:center
+    }
+    .glow{
+      position:absolute;width:420px;height:420px;border-radius:50%;
+      background:radial-gradient(circle,rgba(34,184,181,.27),rgba(34,184,181,0) 68%);
+      filter:blur(4px)
+    }
+    .phone{
+      width:min(360px,88vw);padding:16px;border-radius:42px;
+      background:linear-gradient(150deg,#15383b,#0b1a1c);
+      border:1px solid rgba(255,255,255,.15);box-shadow:var(--shadow);
+      transform:rotate(-4deg);position:relative;z-index:2
+    }
+    .screen{
+      min-height:485px;border-radius:30px;padding:22px;overflow:hidden;position:relative;
+      background:
+        radial-gradient(circle at 80% 10%,rgba(255,209,92,.20),transparent 28%),
+        linear-gradient(180deg,#0d8b8b,#0b5d62 48%,#082f33);
+    }
+    .screen h3{font-size:28px;margin:14px 0 8px}
+    .screen p{font-size:14px;color:#d8ffff;line-height:1.6}
+    .mascot{width:82%;margin:20px auto 0;filter:drop-shadow(0 20px 25px rgba(0,0,0,.25))}
+    .mini-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+    .mini{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.15);padding:13px;border-radius:18px;font-size:12px}
+    .section{padding:72px 0}
+    .section-head{max-width:720px;margin:0 auto 34px;text-align:center}
+    .section-head h2{font-size:clamp(30px,4.8vw,50px);margin:0 0 12px}
+    .section-head p{color:var(--muted);line-height:1.8}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{
+      padding:24px;border-radius:var(--radius);border:1px solid var(--line);
+      background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.045));
+      box-shadow:0 14px 40px rgba(0,0,0,.12);transition:.25s
+    }
+    .card:hover{transform:translateY(-4px);border-color:rgba(110,231,216,.28)}
+    .icon{
+      width:48px;height:48px;border-radius:16px;display:grid;place-items:center;
+      background:rgba(34,184,181,.13);font-size:24px;margin-bottom:18px
+    }
+    .card h3{margin:0 0 9px;font-size:19px}
+    .card p{margin:0;color:var(--muted);line-height:1.75;font-size:14px}
+    .journey{
+      border:1px solid var(--line);border-radius:34px;padding:34px;
+      background:linear-gradient(135deg,rgba(34,184,181,.11),rgba(255,255,255,.035));
+      display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center
+    }
+    .journey img{max-height:340px;object-fit:contain;margin:auto}
+    .journey h2{font-size:40px;margin:0 0 14px}
+    .journey p{color:var(--muted);line-height:1.9}
+    .steps{display:grid;gap:12px;margin-top:20px}
+    .step{display:flex;align-items:flex-start;gap:12px}
+    .num{width:30px;height:30px;border-radius:10px;background:var(--accent);color:#3d2c00;display:grid;place-items:center;font-weight:900;flex:0 0 auto}
+    .download{
+      text-align:center;padding:56px 24px;border:1px solid var(--line);border-radius:34px;
+      background:
+        radial-gradient(circle at 50% 0%,rgba(34,184,181,.18),transparent 50%),
+        rgba(255,255,255,.045)
+    }
+    .download h2{font-size:clamp(32px,5vw,54px);margin:0 0 12px}
+    .download p{color:var(--muted);max-width:650px;margin:0 auto 24px;line-height:1.8}
+    .store{
+      opacity:.88;border:1px solid var(--line);background:#0a1618;color:white
+    }
+    footer{padding:34px 0 50px;color:#91aaaa}
+    .footer{border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px}
+    .footer-links{display:flex;gap:18px;flex-wrap:wrap}
+    @media(max-width:900px){
+      .hero-grid,.journey{grid-template-columns:1fr}
+      .hero{text-align:center}
+      .hero p{margin-left:auto;margin-right:auto}
+      .cta-row{justify-content:center}
+      .hero-visual{min-height:470px}
+      .features{grid-template-columns:1fr 1fr}
+      .nav-links a{display:none}
+    }
+    @media(max-width:620px){
+      .features{grid-template-columns:1fr}
+      .hero{padding-top:48px}
+      .hero-visual{min-height:430px}
+      .phone{transform:none}
+      .journey{padding:22px}
+    }
+  </style>
 </head>
 <body>
-    Sud Rud Assets
+  <nav>
+    <div class="container nav-inner">
+      <a class="brand" href="#top">
+        <span class="brand-badge">س</span>
+        <span>صد رد <span style="color:var(--brand2)">Sud Rud</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="#features" data-ar="المميزات" data-en="Features">المميزات</a>
+        <a href="#journey" data-ar="كيف تعمل" data-en="How it works">كيف تعمل</a>
+        <a href="#download" data-ar="التطبيق" data-en="The app">التطبيق</a>
+        <button class="lang-btn" id="langBtn">EN</button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow" data-ar="✦ تجربة سفر اجتماعية أذكى" data-en="✦ A smarter social travel experience">✦ تجربة سفر اجتماعية أذكى</div>
+          <h1 data-ar="اكتشف مصر<br><span class='gradient'>بطريقتك.</span>" data-en="Explore Egypt<br><span class='gradient'>your way.</span>">اكتشف مصر<br><span class="gradient">بطريقتك.</span></h1>
+          <p data-ar="صد رد يجمع الاستكشاف، الرحلات، الأنشطة، المواصلات، المساعدين المحليين والتواصل الاجتماعي في تجربة واحدة سهلة وممتعة."
+             data-en="Sud Rud brings discovery, trips, activities, mobility, local assistants and social connection together in one simple experience.">
+             صد رد يجمع الاستكشاف، الرحلات، الأنشطة، المواصلات، المساعدين المحليين والتواصل الاجتماعي في تجربة واحدة سهلة وممتعة.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#download" data-ar="اكتشف صد رد" data-en="Discover Sud Rud">اكتشف صد رد</a>
+            <a class="btn btn-secondary" href="mailto:team@sudrud.com" data-ar="تواصل معنا" data-en="Contact us">تواصل معنا</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="glow"></div>
+          <div class="phone">
+            <div class="screen">
+              <div style="font-size:13px;opacity:.8">Sud Rud</div>
+              <h3 data-ar="رحلتك تبدأ هنا" data-en="Your journey starts here">رحلتك تبدأ هنا</h3>
+              <p data-ar="أماكن، أنشطة، رحلات ومواصلات — كلها أقرب ليك." data-en="Places, activities, trips and mobility — all closer to you.">أماكن، أنشطة، رحلات ومواصلات — كلها أقرب ليك.</p>
+              <img class="mascot" src="/emails/mascot_email_trip.png" alt="Sud Rud mascot" onerror="this.src='/emails/mascot_email_general.png'">
+              <div class="mini-cards">
+                <div class="mini">📍 <span data-ar="اكتشف أماكن" data-en="Discover places">اكتشف أماكن</span></div>
+                <div class="mini">🧭 <span data-ar="خطط رحلتك" data-en="Plan your trip">خطط رحلتك</span></div>
+                <div class="mini">🚇 <span data-ar="تحرك بسهولة" data-en="Move easily">تحرك بسهولة</span></div>
+                <div class="mini">💬 <span data-ar="اتواصل" data-en="Connect">اتواصل</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-head">
+          <h2 data-ar="كل رحلتك في مكان واحد" data-en="Your whole journey in one place">كل رحلتك في مكان واحد</h2>
+          <p data-ar="من أول فكرة الخروجة لحد الوصول والمشاركة مع أصحابك — صد رد بيربط كل التفاصيل ببعض."
+             data-en="From the first idea to arrival and sharing with friends, Sud Rud connects every part of the journey.">
+             من أول فكرة الخروجة لحد الوصول والمشاركة مع أصحابك — صد رد بيربط كل التفاصيل ببعض.
+          </p>
+        </div>
+        <div class="features">
+          <article class="card"><div class="icon">🗺️</div><h3 data-ar="استكشاف ذكي" data-en="Smart discovery">استكشاف ذكي</h3><p data-ar="أماكن وتجارب وأنشطة مناسبة لاهتماماتك وموقعك." data-en="Places, experiences and activities matched to your interests and location.">أماكن وتجارب وأنشطة مناسبة لاهتماماتك وموقعك.</p></article>
+          <article class="card"><div class="icon">🧭</div><h3 data-ar="رحلات وأنشطة" data-en="Trips & activities">رحلات وأنشطة</h3><p data-ar="أنشئ رحلة، شاركها، وانضم لأنشطة مع ناس عندهم نفس الاهتمامات." data-en="Create trips, share them and join activities with people who share your interests.">أنشئ رحلة، شاركها، وانضم لأنشطة مع ناس عندهم نفس الاهتمامات.</p></article>
+          <article class="card"><div class="icon">🚇</div><h3 data-ar="مواصلات متكاملة" data-en="Integrated mobility">مواصلات متكاملة</h3><p data-ar="اعرف خيارات الحركة الأقرب ليك من النقل العام للمواصلات والخدمات المحلية." data-en="See nearby mobility options, from public transportation to local services.">اعرف خيارات الحركة الأقرب ليك من النقل العام للمواصلات والخدمات المحلية.</p></article>
+          <article class="card"><div class="icon">👥</div><h3 data-ar="مسافرون قريبون" data-en="Nearby travelers">مسافرون قريبون</h3><p data-ar="اكتشف ناس حواليك، كوّن صداقات، وشارك لحظات الرحلة." data-en="Discover people nearby, make connections and share your travel moments.">اكتشف ناس حواليك، كوّن صداقات، وشارك لحظات الرحلة.</p></article>
+          <article class="card"><div class="icon">🧑‍🏫</div><h3 data-ar="مساعدون محليون" data-en="Local assistants">مساعدون محليون</h3><p data-ar="تواصل مع مرشدين ومساعدين وخبرات محلية تساعدك في رحلتك." data-en="Connect with guides, assistants and local expertise during your journey.">تواصل مع مرشدين ومساعدين وخبرات محلية تساعدك في رحلتك.</p></article>
+          <article class="card"><div class="icon">💬</div><h3 data-ar="تجربة اجتماعية" data-en="Social experience">تجربة اجتماعية</h3><p data-ar="شات، مجموعات، مشاركة أماكن ورحلات وأنشطة — بدون ما تخرج من التجربة." data-en="Chat, groups and sharing of places, trips and activities without leaving the experience.">شات، مجموعات، مشاركة أماكن ورحلات وأنشطة — بدون ما تخرج من التجربة.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="journey">
+      <div class="container journey">
+        <div>
+          <div class="eyebrow" data-ar="من الاستكشاف للوصول" data-en="From discovery to arrival">من الاستكشاف للوصول</div>
+          <h2 data-ar="فكرة بسيطة.<br>رحلة متكاملة." data-en="A simple idea.<br>A complete journey.">فكرة بسيطة.<br>رحلة متكاملة.</h2>
+          <p data-ar="صد رد مصمم يخلي كل خطوة مترابطة بدل ما تستخدم تطبيق لكل حاجة." data-en="Sud Rud is designed to keep every step connected instead of forcing you to use a different app for everything.">صد رد مصمم يخلي كل خطوة مترابطة بدل ما تستخدم تطبيق لكل حاجة.</p>
+          <div class="steps">
+            <div class="step"><span class="num">1</span><div><strong data-ar="اكتشف" data-en="Discover">اكتشف</strong><br><span style="color:var(--muted)" data-ar="مكان أو نشاط يناسبك." data-en="A place or activity that fits you.">مكان أو نشاط يناسبك.</span></div></div>
+            <div class="step"><span class="num">2</span><div><strong data-ar="خطط" data-en="Plan">خطط</strong><br><span style="color:var(--muted)" data-ar="رحلتك والمواصلات والناس اللي معاك." data-en="Your trip, mobility and the people joining you.">رحلتك والمواصلات والناس اللي معاك.</span></div></div>
+            <div class="step"><span class="num">3</span><div><strong data-ar="تحرك واتواصل" data-en="Move & connect">تحرك واتواصل</strong><br><span style="color:var(--muted)" data-ar="وخلي التجربة كلها في مكان واحد." data-en="And keep the whole experience in one place.">وخلي التجربة كلها في مكان واحد.</span></div></div>
+          </div>
+        </div>
+        <img src="/emails/mascot_email_welcome.png" alt="Sud Rud welcome mascot" onerror="this.src='/emails/mascot_email_general.png'">
+      </div>
+    </section>
+
+    <section class="section" id="download">
+      <div class="container">
+        <div class="download">
+          <div class="eyebrow" data-ar="قريبًا على الموبايل" data-en="Coming soon to mobile">قريبًا على الموبايل</div>
+          <h2 data-ar="مستعد تقول: صد رد؟" data-en="Ready to say Sud Rud?">مستعد تقول: صد رد؟</h2>
+          <p data-ar="نسخة التطبيق قادمة على iOS وAndroid. روابط التحميل الرسمية هتظهر هنا بمجرد الإطلاق."
+             data-en="The app is coming to iOS and Android. Official download links will appear here at launch.">
+             نسخة التطبيق قادمة على iOS وAndroid. روابط التحميل الرسمية هتظهر هنا بمجرد الإطلاق.
+          </p>
+          <div class="cta-row" style="justify-content:center">
+            <span class="btn store"> App Store — Coming Soon</span>
+            <span class="btn store">▶ Google Play — Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer">
+      <div>© <span id="year"></span> Sud Rud — صد رد</div>
+      <div class="footer-links">
+        <a href="mailto:team@sudrud.com">team@sudrud.com</a>
+        <a href="/privacy.html" data-ar="الخصوصية" data-en="Privacy">الخصوصية</a>
+        <a href="/terms.html" data-ar="الشروط" data-en="Terms">الشروط</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('langBtn');
+    let lang = 'ar';
+    btn.addEventListener('click', () => {
+      lang = lang === 'ar' ? 'en' : 'ar';
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      btn.textContent = lang === 'ar' ? 'EN' : 'AR';
+      document.querySelectorAll('[data-ar][data-en]').forEach(el => {
+        el.innerHTML = el.dataset[lang];
+      });
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
