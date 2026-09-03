@@ -636,6 +636,61 @@
     .social-link.disabled{opacity:.32;pointer-events:none}
     .copyright{font-size:12px;color:#8ca9ab}
 
+
+    .app-action{cursor:pointer;outline:none}
+    .app-action:focus-visible{box-shadow:0 0 0 3px rgba(117,234,223,.28)}
+    .app-action::after{content:"";pointer-events:none}
+
+    .app-hint{
+      margin-top:18px;
+      display:inline-flex;align-items:center;gap:8px;
+      color:#d8eeee;font-size:12px;font-weight:850;
+      padding:8px 12px;border-radius:999px;
+      border:1px solid rgba(117,234,223,.16);
+      background:rgba(39,199,189,.07)
+    }
+
+    .modal-backdrop{
+      position:fixed;inset:0;z-index:200;
+      display:none;align-items:center;justify-content:center;
+      padding:18px;background:rgba(1,9,10,.76);
+      backdrop-filter:blur(12px)
+    }
+    .modal-backdrop.show{display:flex}
+    .app-modal{
+      width:min(560px,100%);
+      overflow:hidden;
+      border-radius:30px;
+      border:1px solid rgba(255,255,255,.13);
+      background:
+        radial-gradient(circle at 85% 5%,rgba(255,157,47,.13),transparent 26%),
+        radial-gradient(circle at 10% 90%,rgba(39,199,189,.13),transparent 30%),
+        #0a2225;
+      box-shadow:0 30px 100px rgba(0,0,0,.48);
+      animation:pop .2s ease-out
+    }
+    @keyframes pop{from{transform:translateY(12px) scale(.98);opacity:0}to{transform:none;opacity:1}}
+    .modal-top{padding:22px 22px 0;display:flex;justify-content:space-between;gap:18px}
+    .modal-logo{display:flex;align-items:center;gap:10px;font-weight:1000}
+    .modal-logo img{width:42px;height:42px;object-fit:contain}
+    .modal-close{
+      width:40px;height:40px;border-radius:13px;
+      border:1px solid var(--line);background:rgba(255,255,255,.05);
+      color:#fff;cursor:pointer;font-size:20px
+    }
+    .modal-body{padding:14px 22px 22px}
+    .modal-body h3{font-size:30px;line-height:1.25;margin:8px 0 10px}
+    .modal-body p{color:var(--muted);line-height:1.85;margin:0}
+    .modal-points{display:grid;gap:9px;margin:18px 0}
+    .modal-point{
+      display:flex;gap:10px;align-items:flex-start;
+      padding:10px 12px;border-radius:16px;
+      background:rgba(255,255,255,.045);border:1px solid var(--line);
+      color:#dce9ea;font-size:13px
+    }
+    .modal-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    .modal-actions .btn{flex:1;min-width:180px}
+
     @media(max-width:1000px){
       .hero-grid,.split,.assistant-box,.social-box{grid-template-columns:1fr}
       .hero-copy{text-align:center}
@@ -695,9 +750,9 @@
             data-en="Discover. Move.<br><span class='grad'>Connect.</span>">
           اكتشف. اتحرك.<br><span class="grad">اتواصل.</span>
         </h1>
-        <p data-ar="صد رد يجمع الأماكن والأنشطة والرحلات والمواصلات والمساعدين المحليين والتواصل الاجتماعي والمكافآت في تجربة واحدة مرنة وممتعة."
+        <p data-ar="من أول ما تقول «نروح فين؟» لحد ما توصل وتشارك اللي حصل — صد رد بيجمعلك الأماكن والأنشطة والرحلات والمواصلات والناس اللي ممكن تسافر معاهم والمساعدين المحليين في مكان واحد."
            data-en="Sud Rud connects places, activities, trips, mobility, local assistants, social experiences and rewards in one flexible, playful journey.">
-          صد رد يجمع الأماكن والأنشطة والرحلات والمواصلات والمساعدين المحليين والتواصل الاجتماعي والمكافآت في تجربة واحدة مرنة وممتعة.
+          من أول ما تقول «نروح فين؟» لحد ما توصل وتشارك اللي حصل — صد رد بيجمعلك الأماكن والأنشطة والرحلات والمواصلات والناس اللي ممكن تسافر معاهم والمساعدين المحليين في مكان واحد.
         </p>
 
         <div class="hero-actions">
@@ -739,13 +794,13 @@
   <section class="section" id="discover">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow" data-ar="اكتشاف فعلي" data-en="Real discovery">اكتشاف فعلي</span>
-        <h2 data-ar="كل نوع مكان له شخصيته" data-en="Every place type gets its own identity">كل نوع مكان له شخصيته</h2>
-        <p data-ar="بدل أيقونة واحدة لكل الأماكن، كل نوع له PNG واضح: متحف، قلعة، جبل، غوص، طبيعة، ركوب دراجات أو قارب."
+        <span class="eyebrow" data-ar="شوف إيه حواليك" data-en="Real discovery">شوف إيه حواليك</span>
+        <h2 data-ar="مش كل خروجة شبه التانية" data-en="Every place type gets its own identity">مش كل خروجة شبه التانية</h2>
+        <p data-ar="عايز آثار؟ بحر؟ جبل؟ غوص؟ عجلة؟ كل نوع ظاهر بشكله، عشان تلمح اللي يناسب مودك من غير لف كتير."
            data-en="Instead of one generic marker, every place type has its own PNG identity: museum, castle, mountain, diving, nature, cycling or boat.">
-          بدل أيقونة واحدة لكل الأماكن، كل نوع له PNG واضح: متحف، قلعة، جبل، غوص، طبيعة، ركوب دراجات أو قارب.
+          عايز آثار؟ بحر؟ جبل؟ غوص؟ عجلة؟ كل نوع ظاهر بشكله، عشان تلمح اللي يناسب مودك من غير لف كتير.
         </p>
-      </div>
+      <div class="app-hint">اضغط على أي حاجة واعرف هتعمل بيها إيه جوه التطبيق 👆</div></div>
 
       <div class="filters">
         <button class="filter-btn active" data-filter="all" data-ar="الكل" data-en="All">الكل</button>
@@ -755,7 +810,7 @@
       </div>
 
       <div class="places-grid">
-        <article class="place-card" data-kind="history">
+        <article class="place-card app-action" tabindex="0" role="button" data-feature="place" data-kind="history">
           <div class="place-media"><img src="/assets/place_pyramids.png" alt="Pyramids icon"></div>
           <div class="place-body">
             <div class="place-meta"><span>Giza</span><span data-ar="آثار" data-en="Archaeology">آثار</span></div>
@@ -768,7 +823,7 @@
           </div>
         </article>
 
-        <article class="place-card" data-kind="history">
+        <article class="place-card app-action" tabindex="0" role="button" data-feature="place" data-kind="history">
           <div class="place-media"><img src="/assets/place_museum.png" alt="Museum icon"></div>
           <div class="place-body">
             <div class="place-meta"><span>Giza</span><span data-ar="متحف" data-en="Museum">متحف</span></div>
@@ -781,7 +836,7 @@
           </div>
         </article>
 
-        <article class="place-card" data-kind="history">
+        <article class="place-card app-action" tabindex="0" role="button" data-feature="place" data-kind="history">
           <div class="place-media"><img src="/assets/place_castle.png" alt="Castle icon"></div>
           <div class="place-body">
             <div class="place-meta"><span>Cairo</span><span data-ar="قلعة" data-en="Castle">قلعة</span></div>
@@ -794,7 +849,7 @@
           </div>
         </article>
 
-        <article class="place-card" data-kind="nature">
+        <article class="place-card app-action" tabindex="0" role="button" data-feature="activity" data-kind="nature">
           <div class="place-media"><img src="/assets/place_mountain.png" alt="Mountain icon"></div>
           <div class="place-body">
             <div class="place-meta"><span>South Sinai</span><span data-ar="جبل" data-en="Mountain">جبل</span></div>
@@ -807,7 +862,7 @@
           </div>
         </article>
 
-        <article class="place-card" data-kind="water">
+        <article class="place-card app-action" tabindex="0" role="button" data-feature="activity" data-kind="water">
           <div class="place-media"><img src="/assets/activity_diving.png" alt="Diving icon"></div>
           <div class="place-body">
             <div class="place-meta"><span>Red Sea</span><span data-ar="غوص" data-en="Diving">غوص</span></div>
@@ -820,7 +875,7 @@
           </div>
         </article>
 
-        <article class="place-card" data-kind="nature">
+        <article class="place-card app-action" tabindex="0" role="button" data-feature="activity" data-kind="nature">
           <div class="place-media"><img src="/assets/activity_cycling.png" alt="Cycling icon"></div>
           <div class="place-body">
             <div class="place-meta"><span>Egypt</span><span data-ar="دراجات" data-en="Cycling">دراجات</span></div>
@@ -841,41 +896,41 @@
       <div class="rewards-wrap">
         <div class="rewards-head">
           <div>
-            <span class="eyebrow" data-ar="المكافآت والإنجازات" data-en="Rewards & achievements">المكافآت والإنجازات</span>
-            <h2 data-ar="كل رحلة بتزود حكايتك" data-en="Every journey grows your story">كل رحلة بتزود حكايتك</h2>
-            <p class="muted" data-ar="الـbadges مش زينة؛ هي طريقة ممتعة لإظهار التقدم والاستكشاف والمشاركة والمجتمع."
+            <span class="eyebrow" data-ar="كل ما تتحرك… بتكسب" data-en="Rewards & achievements">كل ما تتحرك… بتكسب</span>
+            <h2 data-ar="خروجاتك ليها مستوى 😉" data-en="Every journey grows your story">خروجاتك ليها مستوى 😉</h2>
+            <p class="muted" data-ar="كل Activity، رحلة، ترشيح ومساعدة لحد تاني ممكن تقرّبك من Badge جديد. مش سباق… بس حلو تشوف أنت وصلت لفين."
                data-en="Badges aren't decoration; they're a playful way to show progress, exploration, contribution and community.">
-              الـbadges مش زينة؛ هي طريقة ممتعة لإظهار التقدم والاستكشاف والمشاركة والمجتمع.
+              كل Activity، رحلة، ترشيح ومساعدة لحد تاني ممكن تقرّبك من Badge جديد. مش سباق… بس حلو تشوف أنت وصلت لفين.
             </p>
           </div>
-        </div>
+        <div class="app-hint">كل Badge وراها Challenge جوه التطبيق 🏆</div></div>
 
         <div class="reward-grid">
-          <div class="reward-card">
+          <div class="reward-card app-action" tabindex="0" role="button" data-feature="rewards">
             <img src="/assets/rewards/adventure_seeker.png" alt="Adventure Seeker">
             <strong data-ar="باحث عن المغامرة" data-en="Adventure Seeker">باحث عن المغامرة</strong>
             <small data-ar="ابدأ تستكشف تجارب مختلفة." data-en="Start exploring different experiences.">ابدأ تستكشف تجارب مختلفة.</small>
           </div>
 
-          <div class="reward-card">
+          <div class="reward-card app-action" tabindex="0" role="button" data-feature="rewards">
             <img src="/assets/rewards/activity_active_5.png" alt="Activity Active 5">
             <strong data-ar="نشِط" data-en="Active Explorer">نشِط</strong>
             <small data-ar="شارك في أنشطة متعددة." data-en="Take part in multiple activities.">شارك في أنشطة متعددة.</small>
           </div>
 
-          <div class="reward-card">
+          <div class="reward-card app-action" tabindex="0" role="button" data-feature="rewards">
             <img src="/assets/rewards/activity_pro_10.png" alt="Activity Pro 10">
             <strong data-ar="Activity Pro" data-en="Activity Pro">Activity Pro</strong>
             <small data-ar="مستوى أعلى من المشاركة." data-en="A higher level of participation.">مستوى أعلى من المشاركة.</small>
           </div>
 
-          <div class="reward-card">
+          <div class="reward-card app-action" tabindex="0" role="button" data-feature="rewards">
             <img src="/assets/rewards/travel_explorer.png" alt="Travel Explorer">
             <strong data-ar="مستكشف" data-en="Travel Explorer">مستكشف</strong>
             <small data-ar="كل مكان جديد يوسع رحلتك." data-en="Every new place expands your journey.">كل مكان جديد يوسع رحلتك.</small>
           </div>
 
-          <div class="reward-card">
+          <div class="reward-card app-action" tabindex="0" role="button" data-feature="rewards">
             <img src="/assets/rewards/rewards_vip.png" alt="VIP Reward">
             <strong data-ar="VIP" data-en="VIP">VIP</strong>
             <small data-ar="شارة مميزة ضمن نظام المكافآت." data-en="A premium badge in the rewards system.">شارة مميزة ضمن نظام المكافآت.</small>
@@ -888,11 +943,11 @@
   <section class="section" id="mobility">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow" data-ar="الحركة جزء من الرحلة" data-en="Mobility is part of the journey">الحركة جزء من الرحلة</span>
-        <h2 data-ar="مش مجرد Marker على الخريطة" data-en="More than a marker on a map">مش مجرد Marker على الخريطة</h2>
-        <p data-ar="المترو والقطارات والأتوبيسات والكباتن والسكوتر كل نوع له منطق وأيقونة وتجربة مستقلة."
+        <span class="eyebrow" data-ar="رايح فين؟ طب هتروح إزاي؟" data-en="Mobility is part of the journey">رايح فين؟ طب هتروح إزاي؟</span>
+        <h2 data-ar="كل طريق ليه طريقة" data-en="More than a marker on a map">كل طريق ليه طريقة</h2>
+        <p data-ar="مترو، قطار، أتوبيس، كابتن أو سكوتر — شوف الاختيارات اللي تناسب رحلتك بدل ما تفتح خمس تطبيقات."
            data-en="Metro, trains, buses, captains and scooters each have their own logic, icon and experience.">
-          المترو والقطارات والأتوبيسات والكباتن والسكوتر كل نوع له منطق وأيقونة وتجربة مستقلة.
+          مترو، قطار، أتوبيس، كابتن أو سكوتر — شوف الاختيارات اللي تناسب رحلتك بدل ما تفتح خمس تطبيقات.
         </p>
       </div>
 
@@ -915,11 +970,11 @@
         <div class="panel">
           <h3 data-ar="اختار وسيلة الحركة المناسبة" data-en="Choose the right way to move">اختار وسيلة الحركة المناسبة</h3>
           <div class="mobility-list">
-            <div class="mobility-item"><img src="/assets/icon_metro.png" alt=""><div><strong data-ar="المترو" data-en="Metro">المترو</strong><br><small data-ar="خطوط ومحطات ومسار." data-en="Lines, stations and route.">خطوط ومحطات ومسار.</small></div></div>
-            <div class="mobility-item"><img src="/assets/icon_train.png" alt=""><div><strong data-ar="القطارات" data-en="Trains">القطارات</strong><br><small data-ar="محطات ورحلات مجدولة." data-en="Stations and scheduled services.">محطات ورحلات مجدولة.</small></div></div>
-            <div class="mobility-item"><img src="/assets/icon_bus.png" alt=""><div><strong data-ar="الأتوبيسات" data-en="Buses">الأتوبيسات</strong><br><small data-ar="مزودون وخطوط ونقاط ركوب." data-en="Providers, routes and pickup points.">مزودون وخطوط ونقاط ركوب.</small></div></div>
-            <div class="mobility-item"><img src="/assets/icon_car.png" alt=""><div><strong data-ar="الكباتن" data-en="Captains">الكباتن</strong><br><small data-ar="طلبات قريبة وموقع مباشر." data-en="Nearby requests and live location.">طلبات قريبة وموقع مباشر.</small></div></div>
-            <div class="mobility-item"><img src="/assets/icon_scooter.png" alt=""><div><strong data-ar="السكوتر والدراجات" data-en="Scooters & bikes">السكوتر والدراجات</strong><br><small data-ar="خيارات خفيفة للحركة." data-en="Light mobility options.">خيارات خفيفة للحركة.</small></div></div>
+            <div class="mobility-item app-action" tabindex="0" role="button" data-feature="mobility"><img src="/assets/icon_metro.png" alt=""><div><strong data-ar="المترو" data-en="Metro">المترو</strong><br><small data-ar="خطوط ومحطات ومسار." data-en="Lines, stations and route.">خطوط ومحطات ومسار.</small></div></div>
+            <div class="mobility-item app-action" tabindex="0" role="button" data-feature="mobility"><img src="/assets/icon_train.png" alt=""><div><strong data-ar="القطارات" data-en="Trains">القطارات</strong><br><small data-ar="محطات ورحلات مجدولة." data-en="Stations and scheduled services.">محطات ورحلات مجدولة.</small></div></div>
+            <div class="mobility-item app-action" tabindex="0" role="button" data-feature="mobility"><img src="/assets/icon_bus.png" alt=""><div><strong data-ar="الأتوبيسات" data-en="Buses">الأتوبيسات</strong><br><small data-ar="مزودون وخطوط ونقاط ركوب." data-en="Providers, routes and pickup points.">مزودون وخطوط ونقاط ركوب.</small></div></div>
+            <div class="mobility-item app-action" tabindex="0" role="button" data-feature="mobility"><img src="/assets/icon_car.png" alt=""><div><strong data-ar="الكباتن" data-en="Captains">الكباتن</strong><br><small data-ar="طلبات قريبة وموقع مباشر." data-en="Nearby requests and live location.">طلبات قريبة وموقع مباشر.</small></div></div>
+            <div class="mobility-item app-action" tabindex="0" role="button" data-feature="mobility"><img src="/assets/icon_scooter.png" alt=""><div><strong data-ar="السكوتر والدراجات" data-en="Scooters & bikes">السكوتر والدراجات</strong><br><small data-ar="خيارات خفيفة للحركة." data-en="Light mobility options.">خيارات خفيفة للحركة.</small></div></div>
           </div>
         </div>
       </div>
@@ -933,11 +988,11 @@
              onerror="this.src='/emails/mascot_email_welcome.png'">
 
         <div>
-          <span class="eyebrow" data-ar="المساعد هو قلب التجربة" data-en="Assistants at the center">المساعد هو قلب التجربة</span>
-          <h2 data-ar="مش شرط يكون مرشد سياحي" data-en="Not just a tour guide">مش شرط يكون مرشد سياحي</h2>
-          <p class="muted" data-ar="المساعد ممكن يكون سائق، معلم، فنان، مصور، منظم، مضيف، خبير، مدرب أو مقدم خدمة محلية."
+          <span class="eyebrow" data-ar="محتاج حد فاهم المكان؟" data-en="Assistants at the center">محتاج حد فاهم المكان؟</span>
+          <h2 data-ar="المساعد ممكن يبقى الشخص اللي ناقص رحلتك" data-en="Not just a tour guide">المساعد ممكن يبقى الشخص اللي ناقص رحلتك</h2>
+          <p class="muted" data-ar="ممكن يكون سواق، مصور، منظم، مدرب، فنان، حد من أهل المكان أو خبير في الحاجة اللي إنت رايح تعملها. اختار الشخص المناسب وكلمه من جوه صد رد."
              data-en="An assistant can be a driver, teacher, artist, photographer, organizer, host, expert, instructor or local service provider.">
-            المساعد ممكن يكون سائق، معلم، فنان، مصور، منظم، مضيف، خبير، مدرب أو مقدم خدمة محلية.
+            ممكن يكون سواق، مصور، منظم، مدرب، فنان، حد من أهل المكان أو خبير في الحاجة اللي إنت رايح تعملها. اختار الشخص المناسب وكلمه من جوه صد رد.
           </p>
 
           <div class="roles">
@@ -949,7 +1004,32 @@
             <span class="role" data-ar="خبير محلي" data-en="Local expert">خبير محلي</span>
           </div>
 
-          <a class="btn btn-primary" href="#download" data-ar="كمل التجربة من التطبيق" data-en="Continue in the app">كمل التجربة من التطبيق</a>
+          <button class="btn btn-primary app-action" type="button" data-feature="assistant" data-ar="شوف المساعدين على التطبيق" data-en="See assistants in the app">شوف المساعدين على التطبيق</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container">
+      <div class="social-box app-action" tabindex="0" role="button" data-feature="nearby">
+        <div>
+          <span class="eyebrow">طب لو مش عايز تخرج لوحدك؟</span>
+          <h2>شوف مين ناوي يتحرك قريب منك</h2>
+          <p class="muted">ممكن تكون عايز تروح دهب، تتمشى في وسط البلد، تعمل Diving أو حتى تقعد في كافيه جديد. صد رد بيخلي اكتشاف الناس اللي عندهم نفس الخطة جزء من الرحلة — مع تحكم في الخصوصية والتواصل.</p>
+          <div class="roles">
+            <span class="role">مسافر قريب</span>
+            <span class="role">نفس الـActivity</span>
+            <span class="role">نفس الوجهة</span>
+            <span class="role">ابدأ Chat</span>
+          </div>
+        </div>
+        <div class="chat">
+          <div class="bubble">حد ناوي دهب الويك إند؟ 👀</div>
+          <div class="bubble me">أنا غالبًا رايح السبت. عامل Trip هناك.</div>
+          <div class="bubble me"><strong>🧭 Dahab Weekend</strong><br><span class="muted">Trip shared</span></div>
+          <div class="bubble">تمام، ابعتهالي وأنا أشوفها على صد رد 🙌</div>
         </div>
       </div>
     </div>
@@ -959,11 +1039,11 @@
     <div class="container">
       <div class="social-box">
         <div>
-          <span class="eyebrow" data-ar="تجربة اجتماعية بجد" data-en="A truly social experience">تجربة اجتماعية بجد</span>
-          <h2 data-ar="اتكلم وشارك وخطط مع الناس" data-en="Chat, share and plan together">اتكلم وشارك وخطط مع الناس</h2>
-          <p class="muted" data-ar="رسائل فردية وجروبات وVoice Messages ومشاركة مكان أو نشاط أو رحلة كبطاقة غنية داخل الشات."
+          <span class="eyebrow" data-ar="السفر أحلى لما تلاقي ناس شبهك" data-en="A truly social experience">السفر أحلى لما تلاقي ناس شبهك</span>
+          <h2 data-ar="شوف مين قريب، واتفقوا سوا" data-en="Chat, share and plan together">شوف مين قريب، واتفقوا سوا</h2>
+          <p class="muted" data-ar="شوف مين عايز يسافر قريب منك، ابعت رسالة أو Voice، اعمل جروب، وابعت مكان أو Activity أو رحلة جوه الشات بدل السكرين شوتات واللينكات المتوهة."
              data-en="1:1 and group chat, voice messages and rich place, activity or trip sharing directly inside chat.">
-            رسائل فردية وجروبات وVoice Messages ومشاركة مكان أو نشاط أو رحلة كبطاقة غنية داخل الشات.
+            شوف مين عايز يسافر قريب منك، ابعت رسالة أو Voice، اعمل جروب، وابعت مكان أو Activity أو رحلة جوه الشات بدل السكرين شوتات واللينكات المتوهة.
           </p>
         </div>
 
@@ -980,11 +1060,11 @@
   <section class="section" id="download">
     <div class="container">
       <div class="download">
-        <span class="eyebrow" data-ar="تجربة صد رد الكاملة" data-en="The full Sud Rud experience">تجربة صد رد الكاملة</span>
-        <h2 data-ar="ابدأ من الويب، وكمل من التطبيق" data-en="Start on the web. Continue in the app.">ابدأ من الويب، وكمل من التطبيق</h2>
-        <p data-ar="لما روابط المتاجر الرسمية تكون جاهزة، حطها في الثوابت أسفل الملف وسيصبح الزران قابلين للضغط مباشرة."
+        <span class="eyebrow" data-ar="جاهز تبدأ؟" data-en="The full Sud Rud experience">جاهز تبدأ؟</span>
+        <h2 data-ar="الموقع يوريك الفكرة… التطبيق يعيّشك الرحلة" data-en="Start on the web. Continue in the app.">الموقع يوريك الفكرة… التطبيق يعيّشك الرحلة</h2>
+        <p data-ar="الملاحة المباشرة، الناس القريبة، الشات، الطلبات، الحجوزات والمكافآت كلها معمولة عشان تعيشها من تطبيق صد رد."
            data-en="When your official store URLs are ready, place them in the constants at the bottom of this file and both badges become fully clickable.">
-          لما روابط المتاجر الرسمية تكون جاهزة، حطها في الثوابت أسفل الملف وسيصبح الزران قابلين للضغط مباشرة.
+          الملاحة المباشرة، الناس القريبة، الشات، الطلبات، الحجوزات والمكافآت كلها معمولة عشان تعيشها من تطبيق صد رد.
         </p>
 
         <div class="stores">
@@ -1001,6 +1081,29 @@
   </section>
 </main>
 
+
+<div class="modal-backdrop" id="appModal" aria-hidden="true">
+  <div class="app-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-top">
+      <div class="modal-logo">
+        <img src="/assets/logo_sudrud.png" alt="Sud Rud">
+        <span>صد رد <span style="color:var(--teal-2)">Sud Rud</span></span>
+      </div>
+      <button class="modal-close" id="modalClose" type="button" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body">
+      <span class="eyebrow" id="modalEyebrow">دي في التطبيق 👀</span>
+      <h3 id="modalTitle">كملها من صد رد</h3>
+      <p id="modalText"></p>
+      <div class="modal-points" id="modalPoints"></div>
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="modalDownload" type="button">نزّل صد رد</button>
+        <button class="btn btn-secondary" id="modalLater" type="button">هكمل أتفرج دلوقتي</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <footer>
   <div class="container footer-shell">
     <div class="footer-main">
@@ -1009,9 +1112,9 @@
           <img src="/assets/logo_sudrud.png" alt="Sud Rud logo">
           <span>صد رد <span style="color:var(--teal-2)">Sud Rud</span></span>
         </a>
-        <p data-ar="منصة سفر اجتماعية مصرية تجمع الاستكشاف والحركة والمساعدة المحلية والتواصل والمكافآت في تجربة واحدة."
+        <p data-ar="صد رد معمول عشان الخروجة والرحلة مايبقوش متقسمين بين كذا تطبيق: شوف، خطط، اتحرك، اتكلم، وخلي كل حاجة معاك في مكان واحد."
            data-en="An Egyptian social travel platform connecting discovery, mobility, local assistance, communication and rewards in one experience.">
-          منصة سفر اجتماعية مصرية تجمع الاستكشاف والحركة والمساعدة المحلية والتواصل والمكافآت في تجربة واحدة.
+          صد رد معمول عشان الخروجة والرحلة مايبقوش متقسمين بين كذا تطبيق: شوف، خطط، اتحرك، اتكلم، وخلي كل حاجة معاك في مكان واحد.
         </p>
       </div>
 
@@ -1053,10 +1156,10 @@
      =========================== */
 
   const OFFICIAL_LINKS = {
-    instagram: "",
-    facebook: "",
-    linkedin: "",
-    x: "",
+    instagram: "https://www.instagram.com/sudrud.fun/",
+    facebook: "https://www.facebook.com/search/top?q=Sud%20Rud",
+    linkedin: "https://www.linkedin.com/search/results/companies/?keywords=Sud%20Rud",
+    x: "https://x.com/gosdrd",
 
     googlePlay: "",
     appStore: ""
@@ -1117,6 +1220,125 @@
       });
     });
   });
+
+  const FEATURE_COPY = {
+    places:{
+      title:"لقيت مكان عجبك؟ ما تسيبوش يعدّي 👀",
+      text:"على التطبيق تقدر تفتح المكان، تحفظه، تشوفه على الخريطة، تعرف طريقك ليه وتضيفه لرحلتك بدل ما تفضل حافظ اسمه في دماغك.",
+      points:["احفظ المكان في المفضلة","افتحه على الخريطة واعرف طريقك","ضيفه لرحلة أو ابعته لصحابك"]
+    },
+    place:{
+      title:"المكان ده ممكن يبقى أول محطة في رحلتك",
+      text:"الويب بيديك لمحة. جوه صد رد تقدر تكمل التفاصيل، الاتجاهات، المشاركة وربط المكان برحلة أو Activity.",
+      points:["Directions من مكانك","مشاركة المكان جوه الشات","إضافته لرحلة أو Favorites"]
+    },
+    activities:{
+      title:"مش ناقصك غير ناس تعمل الـActivity معاهم",
+      text:"شوف الأنشطة اللي حواليك أو اعمل Activity بنفسك، ابعتها لصحابك وشوف مين متحمس يشارك.",
+      points:["Activities قريبة منك","انضم أو رشّح Activity","شاركها في شات أو جروب"]
+    },
+    activity:{
+      title:"دي مش صورة Activity وخلاص",
+      text:"على التطبيق هتقدر تشوف النشاط، مكانه، مين مهتم، وتبدأ ترتب يومك حواليه.",
+      points:["شوف التفاصيل والمكان","شاركها مع ناس قريبين","ضيفها لرحلتك"]
+    },
+    trips:{
+      title:"طب ما نلم الرحلة كلها في مكان واحد؟",
+      text:"بدل نوتس ولينكات وسكرين شوتس، اعمل Trip فيها الأماكن والأنشطة والمواصلات والناس اللي معاك.",
+      points:["خطط محطات الرحلة","اربط المواصلات بالوجهات","شارك الرحلة مع أصحابك"]
+    },
+    map:{
+      title:"الخريطة هنا مش بس عشان تعرف إنت فين",
+      text:"على صد رد هتشوف الأماكن والأنشطة والمسافرين والمواصلات حواليك، وكل نوع تقدر تظهره أو تخفيه لوحده.",
+      points:["فلترة حسب اللي محتاجه","Nearby travelers حسب الخصوصية","مواصلات وأماكن وأنشطة على نفس التجربة"]
+    },
+    nearby:{
+      title:"ممكن حد قريب منك يكون رايح نفس المكان",
+      text:"شوف مين عايز يسافر أو يخرج قريب منك، واتواصل من جوه التطبيق من غير ما تنشر بياناتك للناس كلها.",
+      points:["اكتشف ناس قريبة","ابدأ Chat باحترام وخصوصية","شارك مكان أو Activity بدل الكلام الكتير"]
+    },
+    chat:{
+      title:"الشات معمول عشان الرحلة نفسها",
+      text:"مش بس صباح الخير ومساء الخير 😄 ابعت Voice، مكان، Trip، Activity أو Profile جوه المحادثة نفسها.",
+      points:["رسائل فردية وجروبات","Voice Messages","مشاركة Cards جوه الشات"]
+    },
+    assistant:{
+      title:"محتاج حد فاهم المكان؟",
+      text:"اطلب الشخص المناسب للي إنت محتاجه: سواق، مصور، منظم، مرشد، مدرب أو خبير محلي، وكمل التواصل من جوه صد رد.",
+      points:["اختار نوع المساعدة","تواصل مع المساعد","تابع حالة الطلب من التطبيق"]
+    },
+    booking:{
+      title:"الحجز مكانه جوه الرحلة مش في ورقة لوحدها",
+      text:"صد رد معمول عشان الحجوزات والتذاكر تبقى مرتبطة بالمكان أو Activity أو Trip اللي إنت رايحها.",
+      points:["Booking مرتبط بالرحلة","Tickets في مكان واضح","مشاركة تفاصيل الحجز عند الحاجة"]
+    },
+    mobility:{
+      title:"اختار طريقك على حسب رحلتك",
+      text:"مترو، قطار، أتوبيس، كابتن أو سكوتر — التطبيق هو اللي يربط الحركة بالمكان اللي رايحله.",
+      points:["خيارات حركة مختلفة","محطات ومسارات واضحة","اربط المواصلات بالـTrip"]
+    },
+    rewards:{
+      title:"آه… الخروجات ليها Achievements 😄",
+      text:"كل ما تستكشف وتشارك وتكمل Activities ورحلات، هتلاقي Badges وتقدم واضح في الـRewards.",
+      points:["Badges للاستكشاف والأنشطة","Streaks وإنجازات","تقدم ظاهر جوه الـWallet"]
+    },
+    explore:{
+      title:"دي مجرد البداية",
+      text:"الموقع بيوريك Sud Rud، إنما التجربة الحقيقية تبدأ لما تنزل التطبيق وتخلي المكان والناس والطريق والشات مربوطين ببعض.",
+      points:["اكتشاف حسب اهتمامك","خريطة ورحلات ومواصلات","Social + Assistants في نفس المكان"]
+    }
+  };
+
+  const modal = document.getElementById("appModal");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalText = document.getElementById("modalText");
+  const modalPoints = document.getElementById("modalPoints");
+  const modalClose = document.getElementById("modalClose");
+  const modalLater = document.getElementById("modalLater");
+  const modalDownload = document.getElementById("modalDownload");
+
+  function openFeatureModal(feature){
+    const c = FEATURE_COPY[feature] || FEATURE_COPY.explore;
+    modalTitle.textContent = c.title;
+    modalText.textContent = c.text;
+    modalPoints.innerHTML = c.points.map(x => `<div class="modal-point"><span>✓</span><span>${x}</span></div>`).join("");
+    modal.classList.add("show");
+    modal.setAttribute("aria-hidden","false");
+    document.body.style.overflow="hidden";
+  }
+  function closeFeatureModal(){
+    modal.classList.remove("show");
+    modal.setAttribute("aria-hidden","true");
+    document.body.style.overflow="";
+  }
+
+  document.querySelectorAll(".app-action").forEach(el=>{
+    const fire=()=>openFeatureModal(el.dataset.feature || "explore");
+    el.addEventListener("click",fire);
+    el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();fire();}});
+  });
+  modalClose.addEventListener("click",closeFeatureModal);
+  modalLater.addEventListener("click",closeFeatureModal);
+  modal.addEventListener("click",e=>{if(e.target===modal) closeFeatureModal();});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape") closeFeatureModal();});
+
+  modalDownload.addEventListener("click",()=>{
+    closeFeatureModal();
+    document.getElementById("download").scrollIntoView({behavior:"smooth"});
+  });
+
+  // Store badges: until official store URLs are filled, explain instead of doing nothing.
+  ["googlePlayLink","appStoreLink"].forEach(id=>{
+    const el=document.getElementById(id);
+    if(!el) return;
+    el.addEventListener("click",e=>{
+      if(el.classList.contains("store-disabled")){
+        e.preventDefault();
+        openFeatureModal("explore");
+      }
+    });
+  });
+
 </script>
 </body>
 </html>
